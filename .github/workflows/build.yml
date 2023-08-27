@@ -54,3 +54,11 @@ jobs:
     - name: Run python tests/field_tests.py
       run: |
         python tests/field_tests.py
+
+    - name: Run python tests/field_tests_values.py
+      run: |
+        python tests/field_tests_values.py
+
+    - name: Run python tests/unit_tests.py
+      run: |
+        python tests/unit_tests.py

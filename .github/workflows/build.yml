@@ -12,7 +12,7 @@ jobs:
     name: Build
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-11]
+        os: [ubuntu-latest, macos-11, windows-latest]
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
         include:
           - os: macos-11
@@ -25,11 +25,11 @@ jobs:
             CMD_BUILD: pyinstaller workbench --onefile --name workbench-linux
             OUT_FILE_NAME: workbench-linux
             ASSET_MIME: application/zip
-          # - os: windows-latest
-          #   TARGET: windows
-          #   CMD_BUILD: pyinstaller workbench --onefile --name workbench
-          #   OUT_FILE_NAME: workbench.exe
-          #   ASSET_MIME: application/vnd.microsoft.portable-executable
+          - os: windows-latest
+            TARGET: windows
+            CMD_BUILD: pyinstaller workbench --onefile --name workbench
+            OUT_FILE_NAME: workbench.exe
+            ASSET_MIME: application/vnd.microsoft.portable-executable
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
@@ -42,7 +42,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r requirements.txt
 
     - name: Run python tests/unit_tests.py
       run: |

@@ -1,0 +1,10 @@
+pyinstaller
+requests>=2.22,<3
+requests_cache
+ruamel.yaml<=0.17.21
+progress_bar
+openpyxl
+unidecode
+edtf_validate
+typing-extensions
+rich

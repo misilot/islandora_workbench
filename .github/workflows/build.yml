@@ -15,11 +15,11 @@ jobs:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
         include:
-          # - os: macos-11
-          #   TARGET: macos
-          #   CMD_BUILD: pyinstaller workbench --onefile --name workbench-macos
-          #   OUT_FILE_NAME: workbench-macos
-          #   ASSET_MIME: application/zip
+          - os: macos-11
+            TARGET: macos
+            CMD_BUILD: pyinstaller workbench --onefile --name workbench-macos
+            OUT_FILE_NAME: workbench-macos
+            ASSET_MIME: application/zip
           - os: ubuntu-latest
             TARGET: linux
             CMD_BUILD: pyinstaller workbench --onefile --name workbench-linux
